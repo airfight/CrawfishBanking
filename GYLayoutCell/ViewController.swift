@@ -12,7 +12,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let gy = GYIndexPathHeightCache()
+        gy.cacheHeightByIndexPath(50, indexPath: IndexPath(row: 0, section: 0))
+        
+        print(gy.heightsBySectionForCurrentOrientation())
+        print(gy.automaticallyInvalidateEnabled)
+        print(gy.heightForIndexPath(IndexPath(row: 0, section: 0)))
+        
+        gy.invalidateAllHeightCache()
+        print(gy.heightsBySectionForCurrentOrientation())
+        
     }
 
     override func didReceiveMemoryWarning() {
